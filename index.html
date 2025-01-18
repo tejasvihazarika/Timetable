@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="desktop1.css">
-    <title>Schedule Viewer</title>
+    <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <div class="image-box">
-            <img src="logo.png" alt="UPES Logo">
+        <div class="container">
+            <div class="image-box">
+                <img src="logo.png" alt="UPES">
+            </div>
+            <div class="heading">Your schedule is just a click away</div>
+            <div class="form-container">
+                <div class="prompt">Please enter your SAP ID</div>
+                <input type="text" class="sap-search" placeholder="SAP ID Search">
+                <button type="submit">Submit</button>
+            </div>
         </div>
-        <div class="heading">Your schedule is just a click away</div>
-        <div class="form-container">
-            <div class="prompt">Please enter your SAP ID</div>
-            <input type="text" id="sapID" class="sap-search" placeholder="SAP ID Search">
-            <button onclick="fetchTimetable()" type="button">Submit</button>
-        </div>
-        <div id="timetableContainer" class="timetable-container"></div>
-    </div>
-    <div class="footer"></div>
-    <script src="script.js"></script>
+        <div class="footer"></div>
+    
 </body>
 </html>
