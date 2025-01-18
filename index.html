@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="desktop1.css">
-    <title>Document</title>
+    <title>Schedule Viewer</title>
 </head>
 <body>
         <div class="container">
@@ -14,20 +14,33 @@
             <div class="heading">Your schedule is just a click away</div>
             <div class="form-container">
                 <div class="prompt">Please enter your SAP ID</div>
-                <input type="text" class="sap-search">
-                <button type="submit">Submit</button>
-            </div>
+                <input type="text" id="sapID" class="sap-search">
+                <button type="submit" onclick="fetchTimetable()">Submit</button>
+            </div>  
         </div>
+        <div id="timetableContainer"></div>
         <div class="footer">
-            <button type="button" onclick="fb" class="fb">
-                <div class="fb-img"><img src="fb.png" alt="Facebook Icon"></div>
+            
+            <button type="button" id="web-icon" onclick="webIcon()" class="web">
+                <div class="web-img"><img src="website.png"></div>
             </button>
-            <button type="button" onclick="insta" class="ins">
+            <button type="button" id="instagram-icon" onclick="instaIcon()" class="ins">
                 <div class="ins-img"><img src="insta.jpeg"></div>
             </button>
-            <button type="button" onclick="X" class="X">
-                <div class="x-img"><img src="x.png"></div>
+            <button type="button" onclick="linkedinIcon()" id="linkedin-icon" class="linkedin">
+                <div class="linkedin-img"><img src="Linked-in.png"></div>
+            </button>        
+            <button type="button" id="yt-icon" onclick="ytIcon()" class="yt">
+                <div class="yt-img"><img src="yt2.png"></div>
             </button>
+
+            <button type="button" onclick="fbIcon()" id="fb-icon" class="fb">
+                <div class="fb-img"><img src="fb.png" alt="Facebook Icon"></div>
+            </button>
+            <button type="button" onclick="xIcon()" id="x-icon" class="X">
+                <div class="x-img"><img src="x.png"></div>
+            </button>            
+            <script src="script.js"></script>
         </div>        
     
 </body>
