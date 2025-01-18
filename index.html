@@ -5,6 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="desktop1.css">
     <title>Document</title>
+    <script>
+        async function fetchTimetable() {
+            const sapID = document.getElementById('sapID').value;
+            if (!sapID) {
+                alert('Please enter your SAP ID.');
+                return;
+            }
+        
+            
+            try {
+                const response = await fetch(`new/${sapID}.json`);
+                if (!response.ok) {
+                    throw new Error('Timetable not found for the entered SAP ID.');
+                }
+
+                const timeTable = await response.json();
+                displayTimetable(timeTable);
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        function displayTimetable(timeTable) {
+            const tableContainer = document.getElementById('timetableContainer');
+            tableContainer.innerHTML = ''; // Clear any previous timetable
+
+            const table = document.createElement('table');
+            table.border = '1';
+            
+            // Add table headers
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+
+            for (const key of Object.keys(timeTable[0])) {
+                const th = document.createElement('th');
+                th.textContent = key;
+                headerRow.appendChild(th);
+            }
+
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            // Add table rows
+            const tbody = document.createElement('tbody');
+            timeTable.forEach(entry => {
+                const row = document.createElement('tr');
+                
+                for (const value of Object.values(entry)) {
+                    const td = document.createElement('td');
+                    td.textContent = value;
+                    row.appendChild(td);
+                }
+
+                tbody.appendChild(row);
+            });
+
+            table.appendChild(tbody);
+            tableContainer.appendChild(table);
+        }
+        </script>
 </head>
 <body>
         <div class="container">
@@ -14,8 +74,8 @@
             <div class="heading">Your schedule is just a click away</div>
             <div class="form-container">
                 <div class="prompt">Please enter your SAP ID</div>
-                <input type="text" class="sap-search" placeholder="SAP ID Search">
-                <button type="submit">Submit</button>
+                <input type="text" id="sapID" class="sap-search" placeholder="SAP ID Search">
+                <button onclick="fetchTimetable()" type="submit">Submit</button>
             </div>
         </div>
         <div class="footer"></div>
