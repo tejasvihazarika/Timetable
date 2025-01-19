@@ -15,10 +15,23 @@
             <div class="form-container">
                 <div class="prompt">Please enter your SAP ID</div>
                 <input type="text" id="sapID" class="sap-search">
-                <button type="submit" onclick="fetchTimetable()">Submit</button>
+                
+ 
             </div>  
         </div>
-        <div id="timetableContainer"></div>
+        <label for="daySelect">Select Day:</label>
+        <select name="day" id="daySelect">
+                    <option value="" disabled selected>Select a Day</option>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                </select>
+                <button type="submit" onclick="showTimetable()">Submit</button>
+        <div id="timetableContainer" class="timetable">
+            <div id="timetableContent"></div>
+        </div>
         <div class="footer">
             
             <button type="button" id="web-icon" onclick="webIcon()" class="web">
@@ -40,7 +53,7 @@
             <button type="button" onclick="xIcon()" id="x-icon" class="X">
                 <div class="x-img"><img src="x.png"></div>
             </button>            
-            <script src="script.js"></script>
+            <script src="script_2.js"></script>
         </div>        
     
 </body>
